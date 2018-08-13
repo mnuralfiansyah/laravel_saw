@@ -16,8 +16,8 @@ class BuatTabelKriteria extends Migration
         Schema::create('kriterias', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
-            $table->enum('bobot',[1,2,3,4,5]);
-            $table->enum('benefit',[1,0])->default(1);
+            $table->integer('bobot');
+            $table->integer('benefit')->default(1);
             $table->timestamps();
         });
     }
