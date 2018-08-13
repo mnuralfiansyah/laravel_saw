@@ -21,7 +21,7 @@ class HasilController extends Controller
      */
     public function index()
     {
-      if(!Hasil_Akhir::count()){
+      if(!Bobot_Alternatif::count()){
         return redirect('/data_kriteria')->with('Gagal', 'Data Bobot Alternatif Masih Kosong');
       }
 
