@@ -81,7 +81,7 @@ class PerhitunganController extends Controller
 
       $bobot_kriteria = DB::table('kriterias')->join('normalisasi_kriterias','kriterias.id','=','normalisasi_kriterias.id')
                         ->select('kriterias.nama','kriterias.bobot','kriterias.benefit','normalisasi_kriterias.nilai')->get();
-
+dd($bobot_kriteria);
       foreach (Perkalian::orderBy('alternatif_id')->orderBy('kriteria_id')->get() as $key => $v) {
         $perkalian[$v->alternatif->nama][$v->kriteria_id] = ['id'=>$v->alternatif_id,'nilai'=>$v->nilai,'nama_kriteria'=>$v->kriteria->nama];
       }

@@ -63,7 +63,7 @@ class AlternatifController extends Controller
         if(Alternatif::insert(['nama'=>$request->nama])){
           $alternatif = Alternatif::where(['nama'=>$request->nama])->first();
           foreach (Kriteria::all() as $k => $v) {
-            Bobot_Alternatif::insert(['alternatif_id'=>$alternatif->id,'kriteria_id'=>$v->id,'nilai'=>0]);
+            Bobot_Alternatif::insert(['alternatif_id'=>$alternatif->id,'kriteria_id'=>$v->id,'nilai'=>1]);
           }
           return redirect('/data_alternatif')->with('Berhasil', 'Data Alternatif Berhasil Ditambahkan.');
         }

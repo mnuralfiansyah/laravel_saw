@@ -96,7 +96,7 @@ class KriteriaController extends Controller
       if(Kriteria::insert(['nama'=>$r->nama,'bobot'=>$r->bobot,'benefit'=>$r->benefit,])){
         $kriteria = Kriteria::where(['nama'=>$r->nama])->first();
         foreach (Alternatif::all() as $k => $v) {
-          Bobot_Alternatif::insert(['alternatif_id'=>$v->id,'kriteria_id'=>$kriteria->id,'nilai'=>0]);
+          Bobot_Alternatif::insert(['alternatif_id'=>$v->id,'kriteria_id'=>$kriteria->id,'nilai'=>1]);
         }
         return redirect('/data_kriteria')->with('Berhasil', 'Data Kriteria Berhasil Ditambahkan.');
       }
