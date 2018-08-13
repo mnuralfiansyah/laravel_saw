@@ -11,3 +11,5 @@ npm-debug.log
 yarn-error.log
 .env
 /config/database.php
+database_heroku.al
+database_local.al
