@@ -12,8 +12,15 @@ use App\Models\Bobot_Alternatif;
 use App\Models\Normalisasi_Kriteria;
 use App\Models\Normalisasi_Alternatif;
 
+// use App/Http/Controller/KriteriaController;
+
 class PerhitunganController extends Controller
 {
+
+  // public function __construct(Kriteria $kriteria)
+  // {
+  //   $this->kriteria = $kriteria;
+  // }
     /**
      * Display a listing of the resource.
      *
@@ -79,9 +86,9 @@ class PerhitunganController extends Controller
       $hasil    = Hasil_Akhir::all();
 
 
-      $bobot_kriteria = DB::table('kriterias')->join('normalisasi_kriterias','kriterias.id','=','normalisasi_kriterias.id')
+      $bobot_kriteria = DB::table('kriterias')->join('normalisasi_kriterias','kriterias.id','=','normalisasi_kriterias.kriteria_id')
                         ->select('kriterias.nama','kriterias.bobot','kriterias.benefit','normalisasi_kriterias.nilai')->get();
-dd($bobot_kriteria);
+
       foreach (Perkalian::orderBy('alternatif_id')->orderBy('kriteria_id')->get() as $key => $v) {
         $perkalian[$v->alternatif->nama][$v->kriteria_id] = ['id'=>$v->alternatif_id,'nilai'=>$v->nilai,'nama_kriteria'=>$v->kriteria->nama];
       }
