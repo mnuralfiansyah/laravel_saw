@@ -21,8 +21,12 @@ class HasilController extends Controller
      */
     public function index()
     {
+      if(!Hasil_Akhir::count()){
+        return redirect('/data_kriteria')->with('Gagal', 'Data Bobot Alternatif Masih Kosong');
+      }
+
       Hasil_Akhir::truncate();
-      
+
       $sum =  Kriteria::sum('bobot');
       foreach (Kriteria::all() as $k => $v) {
         //Normalisasi Kriteria
@@ -75,7 +79,7 @@ class HasilController extends Controller
      */
     public function create()
     {
-        //
+        return redirect('/data_kriteria')->with('Gagal', 'Data Bobot Alternatif Masih Kosong');
     }
 
     /**
@@ -86,7 +90,7 @@ class HasilController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect('/data_kriteria')->with('Gagal', 'Data Bobot Alternatif Masih Kosong');
     }
 
     /**
@@ -97,7 +101,7 @@ class HasilController extends Controller
      */
     public function show($id)
     {
-        //
+        return redirect('/data_kriteria')->with('Gagal', 'Data Bobot Alternatif Masih Kosong');
     }
 
     /**
@@ -108,7 +112,7 @@ class HasilController extends Controller
      */
     public function edit($id)
     {
-        //
+        return redirect('/data_kriteria')->with('Gagal', 'Data Bobot Alternatif Masih Kosong');
     }
 
     /**
@@ -131,6 +135,6 @@ class HasilController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return redirect('/data_kriteria')->with('Gagal', 'Data Bobot Alternatif Masih Kosong');
     }
 }

@@ -71,7 +71,7 @@ class KriteriaController extends Controller
      */
     public function create()
     {
-        //
+        return redirect('/data_kriteria')->with('Gagal', 'Data Bobot Alternatif Masih Kosong');
     }
 
     /**
@@ -112,7 +112,7 @@ class KriteriaController extends Controller
      */
     public function show($id)
     {
-        //
+        return redirect('/data_kriteria')->with('Gagal', 'Data Bobot Alternatif Masih Kosong');
     }
 
     /**
@@ -123,7 +123,7 @@ class KriteriaController extends Controller
      */
     public function edit($id)
     {
-        //
+        return redirect('/data_kriteria')->with('Gagal', 'Data Bobot Alternatif Masih Kosong');
     }
 
     /**
