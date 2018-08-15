@@ -10,35 +10,13 @@ use App\Models\Bobot_Alternatif;
 
 class AlternatifController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-      return view('template.data_alternatif',['data_alternatif'=>Alternatif::all()]);
+      return view('template.data_alternatif',['data_alternatif'=>Alternatif::all(),'data_kriteria'=>Kriteria::all()]);
     }
-        // return Kriteria::all();
-        // foreach (Kriteria::orderBy('id')->get() as $key => $value) {
-        //   echo $value->id."<br>";
-        // }
-        //
-        // foreach (Bobot_Alternatif::orderBy('alternatif_id')->orderBy('kriteria_id')->get() as $key => $v) {
-        //   $hasil[$v->alternatif_id][$v->kriteria_id] = ['id'=>$v->id,'nilai'=>$v->nilai];
-        // }
-        //
-        // foreach ($hasil as $k => $v) {
-        //   foreach ($v as $i => $u) {
-        //     echo $u['nilai']."<br>";
-        //   }
-        // }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return redirect('/data_kriteria')->with('Gagal', 'Data Bobot Alternatif Masih Kosong');
@@ -63,7 +41,7 @@ class AlternatifController extends Controller
         if(Alternatif::insert(['nama'=>$request->nama])){
           $alternatif = Alternatif::where(['nama'=>$request->nama])->first();
           foreach (Kriteria::all() as $k => $v) {
-            Bobot_Alternatif::insert(['alternatif_id'=>$alternatif->id,'kriteria_id'=>$v->id,'nilai'=>1]);
+            Bobot_Alternatif::insert(['alternatif_id'=>$alternatif->id,'kriteria_id'=>$v->id,'nilai'=>request($v->id)]);
           }
           return redirect('/data_alternatif')->with('Berhasil', 'Data Alternatif Berhasil Ditambahkan.');
         }

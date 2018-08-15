@@ -60,7 +60,7 @@
                           <tr>
                             <td>{{$k}}</td>
                               @foreach ($v as $i => $u)
-                                <td>{{$u['nilai']}}</td>
+                                <td align="right">{{$u['nilai']}}</td>
                               @endforeach
                             <td>
                                 <button data-alternatif-id="{{$u['id']}}"
