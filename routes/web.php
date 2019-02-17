@@ -12,7 +12,7 @@
 */
 
 // Route::get('/', function () {return redirect('/data_kriteria');});
-Route::get('/', function () {return redirect('/data_alternatif')->with('Berhasil', 'Selamat Datang.');});
+//Route::get('/', function () {return redirect('/data_alternatif')->with('Berhasil', 'Selamat Datang.');});
 
 Route::Resource('data_hasil','HasilController');
 Route::Resource('data_perhitungan','PerhitunganController');

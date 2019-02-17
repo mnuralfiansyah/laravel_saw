@@ -26,5 +26,5 @@ class DatabaseSeeder extends Seeder
         //     'kriteria_id' => $i,
         // ]);
       }
-    }
+    
 }
